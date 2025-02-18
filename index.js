@@ -1,30 +1,28 @@
-// task 1 : Find the lowest number in the array below.
-
-function taskOne(heights2) {
-	let res = heights2[0];
-
-	for (number of heights2) {
-		if (number < res) {
-			res = number;
-		}
+function cashOut(money) {
+	if (typeof money !== 'number' || money < 0) {
+		return 'Invalid';
 	}
-	return res;
+	let cashOutCharge = (money / 100) * 1.75;
+	return cashOutCharge;
 }
 
-const task1Solution = taskOne([167, 190, 120, 165, 5]);
-// console.log(task1Solution)
+function validEmail(email) {
+	if (email && typeof email === 'string') {
+		let firstLetter = email[0];
+		let smallLetter = firstLetter.charCodeAt() >= 65 && firstLetter.charCodeAt() <= 90;
+		let capitalLetter = firstLetter.charCodeAt() >= 97 && firstLetter.charCodeAt() <= 122;
+		let dotExit = email.includes('.');
+		let comExist = email.split('.')[1] === 'com';
 
-// Task 2: Find the friend with the smallest name.
-function task2(heights2) {
-	let result = heights2[0];
-
-	for (item of heights2) {
-		if (item.length < result.length) {
-			result = item;
+		if (smallLetter || capitalLetter) {
+			if (email.includes('@') && !email.includes(' ') && dotExit && comExist) {
+				return true;
+			}
 		}
+		return false;
 	}
-	return result;
+	return 'Invalid';
 }
 
-const task2Solution = task2(['rahim', 'robin', 'rafi', 'ron', 'rashed']);
-console.log(task2Solution);
+
+
