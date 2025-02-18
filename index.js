@@ -9,8 +9,10 @@ function cashOut(money) {
 function validEmail(email) {
 	if (email && typeof email === 'string') {
 		let firstLetter = email[0];
-		let smallLetter = firstLetter.charCodeAt() >= 65 && firstLetter.charCodeAt() <= 90;
-		let capitalLetter = firstLetter.charCodeAt() >= 97 && firstLetter.charCodeAt() <= 122;
+		let smallLetter =
+			firstLetter.charCodeAt() >= 65 && firstLetter.charCodeAt() <= 90;
+		let capitalLetter =
+			firstLetter.charCodeAt() >= 97 && firstLetter.charCodeAt() <= 122;
 		let dotExit = email.includes('.');
 		let comExist = email.split('.')[1] === 'com';
 
@@ -24,5 +26,29 @@ function validEmail(email) {
 	return 'Invalid';
 }
 
+function electionResult(votes) {
+	let mangoTeam = 0;
+	let bananaTeam = 0;
 
+	if (!Array.isArray(votes)) {
+		return 'Invalid';
+	}
 
+	for (member of votes) {
+		if (member === 'mango') {
+			mangoTeam++;
+		} else if (member === 'banana') {
+			bananaTeam++;
+		} else {
+			continue;
+		}
+	}
+
+	if (mangoTeam > bananaTeam) {
+		return 'Mango';
+	} else if (mangoTeam < bananaTeam) {
+		return 'Banana';
+	} else {
+		return 'Draw';
+	}
+}
