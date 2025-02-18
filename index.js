@@ -52,3 +52,17 @@ function electionResult(votes) {
 		return 'Draw';
 	}
 }
+
+function isBestFriend(f1, f2) {
+	if (typeof f1 !== 'object' || typeof f2 !== 'object') {
+		return 'Invalid';
+	}
+
+	if (f1.roll === f2.bestFriend) {
+		return true;
+	} else if (f2.roll === f1.bestFriend) {
+		return true;
+	} else {
+		return false;
+	}
+}
