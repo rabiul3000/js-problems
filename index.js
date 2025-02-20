@@ -66,3 +66,23 @@ function isBestFriend(f1, f2) {
 		return false;
 	}
 }
+
+function calculateWatchTime(times) {
+	let totalSeconds = 0;
+
+	for (element of times) {
+		if (typeof element !== 'number') return 'Invalid';
+		totalSeconds += element;
+	}
+
+	let hour = Math.floor(totalSeconds / 3600);
+	let remainingSecond = Math.floor(totalSeconds % 3600);
+	let minute = Math.floor(remainingSecond / 60);
+	let second = Math.floor(remainingSecond % 60);
+
+	return {
+		hour,
+		minute,
+		second,
+	};
+}
